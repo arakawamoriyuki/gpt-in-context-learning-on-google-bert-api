@@ -26,3 +26,8 @@ $ python train_usem.py
 ```sh
 $ python train_bert.py
 ```
+
+![](./assets/tborad1.png)
+![](./assets/tborad2.png)
+![](./assets/tborad3.png)
+
