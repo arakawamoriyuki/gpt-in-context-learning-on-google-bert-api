@@ -5,3 +5,11 @@ Google Bertを転移学習させた自作モデルでドキュメント検索し
 
 TODO
 
+## 学習
+
+[nnlm](https://tfhub.dev/google/nnlm-ja-dim128-with-normalization/2)を利用した転移学習モデルを作成
+
+```sh
+$ python train_nnlm.py
+```
+
