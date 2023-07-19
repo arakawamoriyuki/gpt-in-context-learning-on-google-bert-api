@@ -7,6 +7,8 @@ TODO
 
 ## 学習
 
+input/datasets.ymlを記載して以下3つのうちどれかを実行。下に行けば行くほど性能良いが、推論は遅い。
+
 [nnlm](https://tfhub.dev/google/nnlm-ja-dim128-with-normalization/2)を利用した転移学習モデルを作成
 
 ```sh
@@ -19,3 +21,8 @@ $ python train_nnlm.py
 $ python train_usem.py
 ```
 
+[bert](https://tfhub.dev/tensorflow/bert_multi_cased_preprocess/3)を利用した転移学習モデルを作成。
+
+```sh
+$ python train_bert.py
+```
