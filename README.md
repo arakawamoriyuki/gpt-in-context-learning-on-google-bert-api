@@ -1,4 +1,5 @@
-# gpt-in-context-learning-on-google-bert-api
+# GPT in context learning on Google Bert Api
+
 Google Bertを転移学習させた自作モデルでドキュメント検索した結果をIn-context LearningしたChat GPTで回答させるAPIの実装
 
 ## 環境
@@ -64,3 +65,46 @@ $ curl --request POST \
     ]
 }
 ```
+
+## 質問と回答
+
+```sh
+$ python api.py
+```
+
+```sh
+$ curl --request POST \
+  --url http://localhost:8000/questions \
+  --header 'Content-Type: application/json' \
+  --data '{
+	"messages": [
+		{
+			"role": "user",
+			"content": "運べる荷物の大きさはどのくらい？"
+		}
+	]
+}'
+{
+    "message": "はい、当社ではクレジットカードでのお支払いが可能です。VISA、Mastercard、JCB、AmericanExpress、Dinersのいずれかのクレジットカードをご利用いただけます。ただし、一括払いのみを受け付けておりますので、ご了承ください。現地でのお支払いは対応しておりませんので、あらかじめご了承ください。"
+}
+```
+
+一致したドキュメントに応じて返答
+
+![](./assets/question1.png)
+
+元々のGPTの回答も可能
+
+![](./assets/question2.png)
+
+記憶の保持はリクエスト側(GPT利用側)で実装
+
+![](./assets/question3.png)
+
+複数のドキュメントをまたがる質問も回答可能
+
+![](./assets/question4.png)
+
+多言語モデルから転移学習させてるので何語でも返答可能
+
+![](./assets/question5.png)
