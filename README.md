@@ -13,3 +13,9 @@ TODO
 $ python train_nnlm.py
 ```
 
+[universal-sentence-encoder-multilingual](https://tfhub.dev/google/universal-sentence-encoder-multilingual/3)を利用した転移学習モデルを作成
+
+```sh
+$ python train_usem.py
+```
+
