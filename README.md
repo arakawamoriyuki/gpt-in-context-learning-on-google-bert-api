@@ -80,7 +80,7 @@ $ curl --request POST \
 	"messages": [
 		{
 			"role": "user",
-			"content": "運べる荷物の大きさはどのくらい？"
+			"content": "クレカ決済は可能？"
 		}
 	]
 }'
