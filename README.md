@@ -31,3 +31,36 @@ $ python train_bert.py
 ![](./assets/tborad2.png)
 ![](./assets/tborad3.png)
 
+## 推論
+
+```sh
+$ docker run --rm -it -p 8501:8501 --mount type=bind,source=$PWD/models/app/,target=/models/app -e MODEL_NAME=app -t emacski/tensorflow-serving:2.2.0-linux_arm
+
+$ curl http://localhost:8501/v1/models/app
+{
+ "model_version_status": [
+  {
+   "version": "1",
+   "state": "AVAILABLE",
+   "status": {
+    "error_code": "OK",
+    "error_message": ""
+   }
+  }
+ ]
+}
+
+$ curl --request POST \
+  --url http://localhost:8501/v1/models/app:predict \
+  --header 'content-type: application/json' \
+  --data '{"inputs": ["クレカ決済は可能？"]}'
+{
+    "outputs": [
+        [
+            0.625674307,
+            0.374325722,
+            ...
+        ]
+    ]
+}
+```
